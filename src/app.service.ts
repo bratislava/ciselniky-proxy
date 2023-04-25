@@ -2,8 +2,8 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import axios from 'axios';
 
 interface Item {
-  code: string;
-  name: string;
+  const: string;
+  title: string;
 }
 
 export interface Enum {
@@ -25,8 +25,8 @@ export class AppService {
     //remove rounded brackets and parse
     const responseData = JSON.parse(response.data.slice(1, -2));
     const data = responseData.aaData?.map((x: string[]) => ({
-      code: x[0],
-      name: x[1],
+      const: x[0],
+      title: x[1],
     }));
 
     return { data };
