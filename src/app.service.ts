@@ -15,6 +15,7 @@ const url = 'https://www.slovensko.sk/static/util/filler/lookup.aspx';
 @Injectable()
 export class AppService {
   async findEnum(id: string, search: string): Promise<Enum> {
+    // NestJs HTTP Module can be considered
     const response = await axios({
       method: 'GET',
       url: `${url}?id=${id}&sSearch=${search}`,
